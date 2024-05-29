@@ -1,0 +1,668 @@
+ /* 光りながら出現させるためのｃｓｓ */
+ .glowAnime span {opacity: 0;}
+
+ /* アニメーションで透過を0から1に変化させtext-shadowをつける */
+ .glowAnime.glow span{ animation:glow_anime_on 1s ease-out forwards; }
+
+ @keyframes glow_anime_on {
+    0% { opacity:0; text-shadow: 0 0 0px #e962de, 0 0 0px #e962de;}
+    50% { opacity:1; text-shadow: 0 0 10px #79ece2, 0 0 15px #79ece2;}
+    100% { opacity:1; text-shadow: 0 0 10px #f1a94a, 0 0 0 #f1a94a;}
+ }
+
+
+
+
+  /* ローディング画面 */
+  #loading {
+    /*画面いっぱいに画面を広げる*/
+    height: 100vh;
+    width: 100vw;
+    transition: all 1s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+
+  #loading > img {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .loaded {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+
+
+/*--------------------------------------
+PC,スマホ共通スタイル
+ --------------------------------------*/
+
+
+html {
+  font-family: "Kaisei Tokumin", serif;
+  background-color: #4e041a;
+  margin: 0;
+}
+
+
+img {
+  width: 100%;
+}
+
+p {
+  padding-top: 20px;
+}
+
+/*--------------------------------------
+PC専用タイル
+ --------------------------------------*/
+ @media screen and (min-width:750px) {
+
+  .glowAnime {
+    font-size: 75px;
+    text-align: center;
+    color: #752e05;
+   }
+
+  #loading {
+    background-color: #4e041a;
+  }
+
+  .furasuko {
+    display: none;
+   }
+
+  .size {
+    max-width: 1600px;
+    margin: 0 auto;
+    color: #4e041a;
+    padding: 0 100px;
+  }
+
+  #cloth > img {
+    margin-top: -500px;
+    background-color: #9A1CB2;
+    width: 100%;
+    top: 0;
+    margin: 0;
+  }
+
+  #inc {
+    position: sticky;
+    background-color: #9A1CB2;
+    padding: 300px 0;
+    width: 100%;
+  }
+
+  .over {
+    height: 12%;
+    width: 100%;
+  }
+  /* 
+      メニュー
+              */  
+
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: -15%;
+  }
+
+  #menu {
+    background-image: url(../profile/img/tareru.png);
+    background-repeat: no-repeat;
+    text-align: left;
+    zoom: 1.3;
+    width: 16%;
+    padding: 4% 1%;
+    margin: 0 1%;
+  }
+
+  #menu > h2 {
+    text-align: right;
+    margin-right: 30px;
+    padding-top: 5px;
+  }
+
+  #menu > ul {
+    list-style: none;
+    color: #c59f46;
+  }
+
+  #menu > ul > li  {
+    padding-top: 10px;
+    font-size: 14px;
+  }
+
+
+  .t-tag {
+    color: #c59f46;
+    text-decoration: none;
+  }
+
+  
+  /* 
+      メイン
+              */
+  main {
+    background-color:  #FCD580;
+    text-align: center;
+    margin: -300px 150px 0 150px;
+    padding: 300px 0;
+  }
+
+  .main {
+    margin: 0 auto;
+    font-size: 25px;
+    border-top: 8px dotted #564141;
+  }
+
+  .main > h1 {
+    color: #4e041a;
+    font-size: 70px;
+    padding: 50px 0;
+  }
+
+  .left {
+    text-align: left;
+    margin-left: 30px;
+  }
+  #prof {
+    display: flex;
+    padding-bottom: 50px;
+  }
+
+  #p-item {
+    margin: 80px 0 80px 30px;
+  }
+
+  #p-item > p {
+    text-align: left;
+    margin-bottom: 80px;
+  }
+
+  #p-item > h2 {
+    text-emphasis: "※" #4e041a;
+    text-emphasis-position: under;
+  }
+
+  #prof > img {
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  
+
+   /*
+      ポートフォリオ
+                     */
+  #portfolio {
+    position: relative;
+    width: 770px;
+    height: 650px;
+    margin: 0 auto;
+    left: 300px;
+  }
+
+  .photo {
+    position: absolute;
+    left: -3px;
+    top: 100px;
+    width: 30vh;
+    height: 30vh;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  #p1 {
+ 
+    animation: slidepass 16s infinite;
+    animation-delay: -16s;
+  }
+
+  #p2 {
+ 
+    animation: slidepass 16s infinite;
+    animation-delay: -12s;
+  }
+
+  #p3 {
+  
+    animation: slidepass 16s infinite;
+    animation-delay: -8s;
+  }
+
+  #p4 {
+
+    animation: slidepass 16s infinite;
+    animation-delay: -4s;
+  }
+
+
+  /* スライドの動きワンサイクル */
+
+  @keyframes slidepass {
+    0% {transform:perspective(375px) rotateY(0deg) translateY(80px) translateZ(300px);z-index:20;}
+    25% {transform:perspective(500px) rotateY(110deg) translateY(40px) translateZ(300px);z-index:15;}
+    50% {transform:perspective(500px) rotateY(180deg) translateY(0px) translateZ(300px);z-index:0;}
+    75% {transform:perspective(500px) rotateY(250deg) translateY(40px) translateZ(300px);z-index:15;}
+    100% {transform:perspective(375px) rotateY(360deg) translateY(80px) translateZ(300px);z-index:20;}
+  }
+
+  #zabuton {
+    margin: -200px auto 0 auto;
+    width: 100vh;
+  } 
+
+  /*
+      得意な仕事
+                */
+  #work {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .pride {
+    display: block;
+    justify-content: space-around;
+  }
+
+  .p-box  {
+    display: flex;
+    font-size: 20px;
+    height: 250px;
+  }
+
+  .p-box > img {
+    width: 15vh;
+    height: 15vh;
+    margin: 10px;
+  }
+
+
+  #tutu {
+    margin-top: -500px;
+    margin-left: -43px;
+    width: 100%;
+    margin-bottom: -500px;
+    z-index: 2;
+  }
+
+  
+
+  /* 
+      フッター
+                */
+  footer {
+    display: sticky;
+    margin-top: 50px;
+  }
+
+  #foot {
+    display: flex;
+    height: 650px;
+  }
+
+
+  /* 烏 */
+
+  #karasu {
+    width: 50%;
+    height: 300px;
+  }
+
+  #karasu > img {
+    margin: 0;
+  }
+
+  #karasu > a > p {
+    top: 0;
+    margin-left: 275px;
+    margin-top: -380px;
+    font-size: 48px;
+    font-weight: bolder;
+  }
+  #karasu > a:link {
+    text-decoration: none;
+    color:#564141;
+  }
+
+  #karasu > a:visited {
+    color: #564141;
+  }
+
+  /* SNS */
+ #net{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#ffffff;
+    width: 600px;
+    height: 380px;
+    margin: 200px auto;
+  }
+
+
+  #Twitter {
+    padding: 15px;
+    background-color: #333333;
+    width: 25vh;
+  }
+
+  #Instagram {
+    padding: 36px;
+    width: 37vh;
+  }
+
+}
+
+
+
+
+
+
+/*--------------------------------------
+スマホ専用タイル
+ --------------------------------------*/
+ @media screen and (max-width:750px) {
+
+  .glowAnime {
+    font-size: 50px;
+    text-align: center;
+    color: #752e05;
+   }
+
+  #loading {
+    background-color: #4e041a;
+  }
+  
+  .oonabe {
+    display: none;
+   }
+
+  .size {
+    max-width: 750px;
+    margin: 0 auto;
+    color: #4e041a;
+    padding: 0 10px;
+  }
+
+  #cloth > img {
+    margin-top: -500px;
+    background-color: #9A1CB2;
+    width: 100%;
+    top: 0;
+    margin: 0;
+  }
+
+  #inc {
+    position: sticky;
+    background-color: #9A1CB2;
+    padding: 340px 0;
+    width: 100%;
+  }
+
+  .over {
+    height: 12%;
+    width: 100%;
+  }
+  /* 
+      メニュー
+              */  
+
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: -15%;
+  }
+
+  #menu {
+    background-image: url(../profile/img/tareru.png);
+    background-repeat: no-repeat;
+    text-align: left;
+    zoom: 0.7;
+    width: 37%;
+    padding: 9% 2%;
+    margin: 0 2%;
+  }
+
+  #menu > h2 {
+    text-align: right;
+    margin-right: 45px;
+  }
+
+  #menu > ul {
+    list-style: none;
+    color: #c59f46;
+  }
+
+  #menu > ul > li  {
+    padding-top: 10px;
+    font-size: 14px;
+  }
+
+
+  .t-tag {
+    color: #c59f46;
+    text-decoration: none;
+  }
+
+  
+  /* 
+      メイン
+              */
+  main {
+    background-color:  #FCD580;
+    text-align: center;
+    margin: -300px 50px 0 50px;
+    padding-top: 260px;
+    padding-bottom: 130px;
+  }
+
+  .main {
+    margin: 0 auto;
+    font-size: 12px;
+    border-top: 8px dotted #564141;
+  }
+
+  .main > h1 {
+    color: #4e041a;
+    font-size: 50px;
+    padding: 50px 0;
+  }
+
+  #prof {
+    display: block;
+    padding-bottom: 50px;
+  }
+
+
+  #p-item > p {
+    text-align: center;
+    margin-bottom: 55px;
+  }
+
+  #p-item > h2 {
+    text-emphasis: "※" #4e041a;
+    text-emphasis-position: under;
+  }
+
+  #prof > img {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  
+
+   /*
+      ポートフォリオ
+                     */
+  #port {
+    font-size: 35px;
+  }
+
+  #portfolio {
+    position: relative;
+    height: 650px;
+    margin: 0 auto;
+  }
+
+  .photo {
+    position: absolute;
+    left: -3px;
+    top: 100px;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  #p1 {
+ 
+    animation: slidepass 16s infinite;
+    animation-delay: -16s;
+  }
+
+  #p2 {
+ 
+    animation: slidepass 16s infinite;
+    animation-delay: -12s;
+  }
+
+  #p3 {
+  
+    animation: slidepass 16s infinite;
+    animation-delay: -8s;
+  }
+
+  #p4 {
+
+    animation: slidepass 16s infinite;
+    animation-delay: -4s;
+  }
+
+
+  /* スライドの動きワンサイクル */
+
+  @keyframes slidepass {
+    0% {transform:perspective(750px) rotateY(0deg) translateY(80px) translateZ(300px);z-index:20;}
+    25% {transform:perspective(1000px) rotateY(110deg) translateY(40px) translateZ(300px);z-index:15;}
+    50% {transform:perspective(1000px) rotateY(180deg) translateY(0px) translateZ(300px);z-index:0;}
+    75% {transform:perspective(1000px) rotateY(250deg) translateY(40px) translateZ(300px);z-index:15;}
+    100% {transform:perspective(750px) rotateY(360deg) translateY(80px) translateZ(300px);z-index:20;}
+  }
+
+  #zabuton {
+    margin: -270px auto 0 auto;
+    width: 33vh;
+  } 
+
+  /*
+      得意な仕事
+                */
+  .pride {
+    display: block;
+    justify-content: space-around;
+  }
+
+  .p-box  {
+    display: block;
+    font-size: 12px;
+    padding-bottom: 55px;
+  }
+
+  .p-box > img {
+    width: 15vh;
+    height: 15vh;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+
+  #tutu {
+    margin-top: -150px;
+    margin-left: -8px;
+    margin-bottom: -100px;
+    width: 100%;
+    z-index: 2;
+  }
+
+
+
+  /* 
+      フッター
+                */
+  footer {
+    display: sticky;
+    margin-top: 50px;
+  }
+
+  #foot {
+    display: block;
+
+    height: 650px;
+  }
+
+
+  /* 烏 */
+
+  #karasu {
+    height: 250px;
+  }
+
+  #karasu > img {
+    margin: 0;
+  }
+
+  #karasu > a > p {
+    top: 0;
+    margin-left: 138px;
+    margin-top: -203px;
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  #karasu > a:link {
+    text-decoration: none;
+    color:#564141;
+  }
+
+  #karasu > a:visited {
+    color: #564141;
+  }
+
+  /* SNS */
+ #net{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    width: 360px;
+    height: 180px;
+    margin: 160px auto;
+  }
+
+
+  #Twitter {
+    padding: 15px;
+    background-color: #333333;
+    width: 25vh;
+  }
+
+  #Instagram {
+    padding: 36px;
+    width: 37vh;
+  }
+
+}
